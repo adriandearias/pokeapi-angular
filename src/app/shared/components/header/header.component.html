@@ -1,0 +1,13 @@
+<div class="header">
+    <div class="header__logo">
+      <img src="../../../../assets/images/logo_pt.png" alt="Logo Pokemon">
+    </div>
+    <ul class="header__list list-one">
+      <li routerLinkActive="active" [routerLink]="item.router" *ngFor="let item of mainMenu.defaultOptions" class="header__list-item">
+      <!-- <li routerLinkActive="active" (click)="navigateTo(item.router)" *ngFor="let item of mainMenu.defaultOptions" class="header__list-item">   -->
+        <i [ngClass]="['uil', item.icon]"></i>
+        <span class="header__list-label">{{item.name}}</span>
+      </li>
+    </ul>
+  </div>
+  
