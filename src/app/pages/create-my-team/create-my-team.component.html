@@ -1,1 +1,39 @@
-<p>create-my-team works!</p>
+<div class="container">
+    <h1 class="title">Create my Pokemon Team</h1>
+    <div class="pokemon-team">
+        <h2 class="subtitle">My Dream Team</h2>
+        <div class="pokemon-list">
+            <div class="pokemon-card" *ngFor="let pokemon of pokemonList">
+                <img class="pokemon-image" [src]="pokemon.imageUrl" [alt]="pokemon.name">
+                <div class="pokemon-details">
+                    <h3 class="pokemon-name">{{pokemon.name}}</h3>
+                    <p class="pokemon-type">{{pokemon.type}}</p>
+                    <button class="remove-button" (click)="removeFromTeam(pokemon)">Remove</button>
+                </div>
+            </div>
+        </div>
+        <div class="team-actions">
+            <button class="remove-all-button" (click)="removeAllFromTeam()">Delete Team</button>
+        </div>
+    </div>
+    <div>
+        <input (input)="onSearchTermChange($event)" [(ngModel)]="searchTerm" placeholder="Filter by Name" />
+
+    </div>
+    <div class="pokemon-selection">
+        <h2 class="subtitle">Select 6 Pokemons</h2>
+        <div class="pokemon-list">
+            <div class="pokemon-card" *ngFor="let pokemon of pokemonSelectionList">
+                <img class="pokemon-image" [src]="pokemon.imageUrl" [alt]="pokemon.name">
+                <div class="pokemon-details">
+                    <h3 class="pokemon-name">{{pokemon.name}}</h3>
+                    <p class="pokemon-type">{{pokemon.type}}</p>
+                    <button class="add-button" (click)="addToTeam(pokemon)">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loading-overlay" *ngIf="isLoading">
+        <div class="loading-spinner"></div>
+    </div>
+</div>

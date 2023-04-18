@@ -1,0 +1,116 @@
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 5% 20px 200px 20px;
+  
+    input {
+        width: 100%;
+        max-width: 300px; 
+        margin: 0 auto;
+        display: block;
+        padding: 10px;
+        margin-top: 20px;
+    }
+  
+    h1 {
+      font-size: 44px;
+      margin-bottom: 20px;
+      word-break: break-all;
+      outline: none;
+      border: none;
+      background: transparent;
+      color: #fcf7f7;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+    }
+  
+    .subtitle {
+      text-align: center;
+      font-size: 24px;
+      color: #fcf7f7;
+      margin-bottom: 20px;
+    }
+  
+    .pokemon-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 20px;
+  
+      .pokemon-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        max-width: 200px;
+        border: 1px solid white;
+        border-radius: 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 10px;
+        position: relative;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .pokemon-card.selected {
+        opacity: 0.5;
+      }
+  
+      .pokemon-name,
+      .pokemon-type {
+        text-transform: capitalize;
+      }
+    }
+  
+    .team-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+  
+      .remove-all-button {
+        background-color: #fcf7f7;
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+  
+        &:hover {
+          background-color: #ebebeb;
+        }
+      }
+    }
+  
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+      .spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: #3498db;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+      }
+  
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+  
