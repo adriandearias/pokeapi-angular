@@ -68,6 +68,6 @@ export class PokemonsComponent implements OnInit {
   }
 
   goToPokemonDetail(pokemon: PokemonModelRaw) {
-    this.router.navigate(['/pokemon', pokemon.id]);
+    this.router.navigate(['/pokemon-datail', pokemon.id]);
   }
 }

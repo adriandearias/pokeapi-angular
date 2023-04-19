@@ -26,7 +26,7 @@ import { CreateMyTeamComponent } from '../pages/create-my-team/create-my-team.co
    HeaderComponent,
    PokemonFilterPipe,
    PokemonDetailComponent,
-   PokemonFilterPipe,
+   PokemonsComponent,
   ]
 })
 export class SharedModule { }

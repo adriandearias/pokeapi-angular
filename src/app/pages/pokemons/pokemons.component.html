@@ -4,10 +4,12 @@
 <div class="container">
     <div class="row">
         <div class="card" *ngFor="let pokemon of paginatedPokemons">
-            <img class="card-img-top" [src]="pokemon.sprites.other.dream_world.front_default" alt="{{ pokemon.name }}"/>
-            <div class="card-body">
-                <h5 class="card-title">{{ pokemon.id }} - {{ pokemon.name | titlecase }}</h5>
-            </div>
+            <a [routerLink]="['/pokemon-detail', pokemon.id]">
+                <img class="card-img-top" [src]="pokemon.sprites.other.dream_world.front_default" alt="{{ pokemon.name }}"/>
+                <div class="card-body">
+                    <h5 class="card-title">{{ pokemon.id }} - {{ pokemon.name | titlecase }}</h5>
+                </div>
+            </a>    
         </div>
     </div>
 </div>

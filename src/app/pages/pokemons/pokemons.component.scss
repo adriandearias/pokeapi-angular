@@ -11,6 +11,19 @@
   flex-wrap: wrap;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: white;
+  outline: none;
+}
+
 .card {
   border-radius: 40px;
   border: 1px solid white;
