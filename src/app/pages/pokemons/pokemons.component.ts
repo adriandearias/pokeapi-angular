@@ -1,6 +1,7 @@
 import { PokemonModelRaw } from '../../core/models/pokemonModelRaw.model';
 import { PokeapiRawDataService } from '@core/services/pokeapi-raw-data/pokeapi-raw-data.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemons',
@@ -16,7 +17,10 @@ export class PokemonsComponent implements OnInit {
   public pageSize: number = 25;
   public totalPages: number = 0;
   
-  constructor(private pokeapiService: PokeapiRawDataService) {}
+  constructor(
+    private pokeapiService: PokeapiRawDataService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.getPokemons();
@@ -61,5 +65,9 @@ export class PokemonsComponent implements OnInit {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.paginatedPokemons = this.pokemons.slice(startIndex, endIndex);
+  }
+
+  goToPokemonDetail(pokemon: PokemonModelRaw) {
+    this.router.navigate(['/pokemon', pokemon.id]);
   }
 }
