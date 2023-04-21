@@ -1,9 +1,13 @@
+$primary-color: #0d0d0d;
+$secondary-color: #FFCC00;
+
+
 :host {
   position: fixed;
   bottom: 0;
   width: 100%;
   height: 10%;
-  background-color: rgb(58, 58, 58);
+  background-color: $primary-color;
 }
 
 .footer-container {

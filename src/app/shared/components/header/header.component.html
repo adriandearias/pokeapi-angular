@@ -1,13 +1,17 @@
-<div class="header">
-    <div class="header__logo">
-      <img src="../../../../assets/images/logo_pt.png" alt="Logo Pokemon">
-    </div>
-    <ul class="header__list list-one">
-      <li routerLinkActive="active" [routerLink]="item.router" *ngFor="let item of mainMenu.defaultOptions" class="header__list-item">
-      <!-- <li routerLinkActive="active" (click)="navigateTo(item.router)" *ngFor="let item of mainMenu.defaultOptions" class="header__list-item">   -->
-        <i [ngClass]="['uil', item.icon]"></i>
-        <span class="header__list-label">{{item.name}}</span>
+<header class="header">
+  <div class="header__logo-container">
+    <img src="../../../../assets/images/logo_pt_v3.png" alt="logo_pokemon">
+  </div>
+  <div class="header__container">
+    <button (click)="toggleMenu()" class="header__button" [attr.aria-expanded]="isMenuOpen ? 'true' : 'false'" [attr.aria-label]="isMenuOpen ? 'Close Menu' : 'Open Menu'">
+      <span class="header__button-icon uil uil-bars"> </span>
+    </button>
+    <ul class="header__list" [class.header__list--open]="isMenuOpen">
+      <li [class.active]="router.url === item.router[0]" *ngFor="let item of mainMenu.defaultOptions" (click)="navigateTo(item.router); closeMenu()" class="header__list-item"> 
+        <span [class]="item.icon">
+          {{ item.name }}
+        </span>
       </li>
     </ul>
   </div>
-  
+</header>
