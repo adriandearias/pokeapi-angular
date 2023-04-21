@@ -15,7 +15,7 @@ export class PokeapiRawDataService {
   constructor(private http: HttpClient) { }
 
   getPokemons(): Observable<PokemonModelRaw[]> {
-    const pokemonIds = Array.from({length: 1000}, (_, i) => i + 1);
+    const pokemonIds = Array.from({length: 150}, (_, i) => i + 1);
     const requests = pokemonIds.map(id => this.http.get<PokemonModelRaw>(`${this.apiUrl}${id}`));
     return forkJoin(requests);
   }
