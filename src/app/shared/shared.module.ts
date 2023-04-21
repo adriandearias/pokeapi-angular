@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { PokemonFilterPipe } from './pipe/pokemon-filter.pipe';
 import { PokemonDetailComponent } from '../pages/pokemon-detail/pokemon-detail.component';
 import { PokemonsComponent } from '../pages/pokemons/pokemons.component';
-import { CreateMyTeamComponent } from '../pages/create-my-team/create-my-team.component';
+
 
 @NgModule({
   declarations: [

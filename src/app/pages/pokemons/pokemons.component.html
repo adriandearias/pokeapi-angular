@@ -3,8 +3,9 @@
 </div>
 <div class="container">
     <div class="row">
+        <!-- <div class="card" *ngFor="let pokemon of pokemons"> -->
         <div class="card" *ngFor="let pokemon of paginatedPokemons">
-            <a [routerLink]="['/pokemon-detail', pokemon.id]">
+            <a [routerLink]="['/pokemons', pokemon.id]">
                 <img class="card-img-top" [src]="pokemon.sprites.other.dream_world.front_default" alt="{{ pokemon.name }}"/>
                 <div class="card-body">
                     <h5 class="card-title">{{ pokemon.id }} - {{ pokemon.name | titlecase }}</h5>
@@ -13,6 +14,7 @@
         </div>
     </div>
 </div>
+
 <div class="pagination">
     <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
     <span>{{ currentPage }} / {{ totalPages }}</span>
