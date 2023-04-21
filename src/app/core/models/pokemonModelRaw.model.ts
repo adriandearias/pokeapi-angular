@@ -22,4 +22,5 @@ export interface PokemonModelRaw {
       name: string;
     };
   }[];
+  height: number;
 }
