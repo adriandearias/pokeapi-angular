@@ -23,4 +23,5 @@ export interface PokemonModelRaw {
     };
   }[];
   height: number;
+  weight: number;
 }
