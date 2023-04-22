@@ -1,7 +1,7 @@
 .container {
     max-width: 100%;
     margin: 0 auto;
-    padding: 5% 20px 200px 20px;
+    padding: 180px 10px 100px 10px;
   
     input {
         width: 100%;
@@ -19,7 +19,7 @@
       outline: none;
       border: none;
       background: transparent;
-      color: #fcf7f7;
+      color: var(--color-5);
       font-weight: bold;
       text-align: center;
       width: 100%;
@@ -28,7 +28,7 @@
     .subtitle {
       text-align: center;
       font-size: 24px;
-      color: #fcf7f7;
+      color: var(--color-5);
       margin-bottom: 20px;
     }
   
@@ -36,22 +36,24 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 5px;
       padding-bottom: 20px;
   
       .pokemon-card {
         display: flex;
+        color: white;
         align-items: center;
         justify-content: center;
         flex: 1;
         max-width: 200px;
-        border: 1px solid white;
+        border: 2px solid var(--color-6);
         border-radius: 30px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 20px;
         margin: 10px;
         position: relative;
         transition: opacity 0.3s ease-in-out;
+        background-color: var(--color-2);
       }
       .pokemon-card.selected {
         opacity: 0.5;
@@ -111,6 +113,24 @@
           transform: rotate(360deg);
         }
       }
+    }
+    .add-button{
+      padding: 5px 40px 5px 40px;
+      border-radius: 30px;
+      border: none;
+    }
+    .remove-button{
+      padding: 5px 30px 5px 30px;
+      border-radius: 30px;
+      border: none;
+    }
+
+    img {
+      transition: transform 0.3s ease;
+    }
+    
+    img:hover {
+      transform: scale(1.8);
     }
   }
   

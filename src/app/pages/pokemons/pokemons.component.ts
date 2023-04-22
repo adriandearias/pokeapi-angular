@@ -27,7 +27,6 @@ export class PokemonsComponent implements OnInit {
       if (data['pokemonData']) {
         console.log(data['pokemonData'])
         this.paginatedPokemons = data['pokemonData']
-        console.log('ESTAMOS AQUI ');
       }else{
         this.getPokemons();
       }
@@ -36,12 +35,13 @@ export class PokemonsComponent implements OnInit {
     
   getPokemons() {
     this.isLoading = true;
-    
+    const offset = (this.currentPage - 1) * this.pageSize;
     this.pokeapiService.getPokemons().subscribe(
       (data: PokemonModelRaw[]) => {
-        this.paginatedPokemons = data;
-        this.totalPages = Math.ceil(this.paginatedPokemons.length / this.pageSize);
-        this.paginatedPokemons = this.paginatedPokemons.slice(0, this.pageSize);
+        this.paginatedPokemons = data.slice(offset, offset + this.pageSize);
+        this.totalPages = Math.ceil(data.length / this.pageSize);
+        console.log(this.totalPages);
+        
         this.isLoading = false;
       },
       (error: string) => {
@@ -70,9 +70,8 @@ export class PokemonsComponent implements OnInit {
   }
 
   updatePaginatedPokemons() {
-    const startIndex = (this.currentPage - 1) * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-    this.paginatedPokemons = this.paginatedPokemons.slice(startIndex, endIndex);
+    const offset = (this.currentPage - 1) * this.pageSize;
+    this.paginatedPokemons = this.paginatedPokemons.slice(offset, offset + this.pageSize);
   }
 
   goToPokemonDetail(pokemon: PokemonModelRaw) {
